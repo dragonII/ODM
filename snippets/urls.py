@@ -14,6 +14,9 @@ from snippets import views, classbased_views
 #    url(r'users/(?P<pk>[0-9]+)/$', classbased_views.UserDetail.as_view()),
 #]
 
+
+#urlpatterns = format_suffix_patterns(urlpatterns)
+
 urlpatterns = format_suffix_patterns([
         url(r'^api/$', 
             classbased_views.api_root),
@@ -30,9 +33,6 @@ urlpatterns = format_suffix_patterns([
             classbased_views.UserDetail.as_view(), 
             name = 'user-detail'),
 ])
-
-
-#urlpatterns = format_suffix_patterns(urlpatterns)
 
 urlpatterns += [
     url(r'^api-auth/', include('rest_framework.urls', namespace = 'rest_framework')),
